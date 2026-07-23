@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Deteksi Wajah MediaPipe Kamera PC</title>
+<title>Face Mesh MediaPipe - Kamera PC</title>
 
-<!-- MediaPipe Face Detection -->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/face_detection.js"></script>
+<!-- MediaPipe Face Mesh -->
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
 
@@ -18,168 +18,110 @@
 }
 
 body{
-
     margin:0;
-    font-family:"Segoe UI",Arial,sans-serif;
-
-    background:
-    linear-gradient(
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:linear-gradient(
         135deg,
-        #ffe0e9,
-        #fff4d6,
-        #dff7ff
+        #ffe0ec,
+        #fff3cd,
+        #d9f7ff
     );
-
 }
-
 
 .container{
-
     width:95%;
     max-width:1000px;
-
     margin:30px auto;
-
     background:white;
-
     border-radius:20px;
-
     overflow:hidden;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.25);
-
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
-
 
 .header{
-
-    background:
-    linear-gradient(
+    background:linear-gradient(
         90deg,
-        #ff5722,
-        #ff9800
+        #6a1b9a,
+        #ec407a
     );
-
     color:white;
-
     text-align:center;
-
     padding:25px;
-
 }
-
 
 .header h1{
-
     margin:0;
-
+    font-size:32px;
 }
-
 
 .live{
-
     display:inline-block;
-
     margin-top:12px;
-
     background:red;
-
     padding:8px 20px;
-
     border-radius:30px;
-
     font-weight:bold;
-
     animation:blink 1s infinite;
-
 }
 
-
 @keyframes blink{
-
     50%{
         opacity:.4;
     }
-
 }
 
 
-
-.camera-box{
-
+.camera-area{
     position:relative;
-
-    width:100%;
-
     background:black;
-
 }
 
 
 video{
-
     width:100%;
-
     display:block;
-
 }
 
 
 canvas{
-
     position:absolute;
-
     top:0;
-
     left:0;
-
 }
 
 
-
 .info{
-
     padding:25px;
-
-    background:#fff8f0;
-
+    background:#fff8fb;
 }
 
 
 .info h2{
-
-    color:#e65100;
-
+    color:#ad1457;
 }
 
 
 .info p{
-
     font-size:18px;
-
     line-height:1.8;
-
     text-align:justify;
-
 }
 
 
 button{
 
     display:block;
-
     margin:20px auto;
 
     padding:12px 25px;
 
     border:none;
 
-    border-radius:10px;
-
-    background:#ff5722;
+    background:#8e24aa;
 
     color:white;
+
+    border-radius:10px;
 
     font-size:16px;
 
@@ -190,22 +132,18 @@ button{
 
 button:hover{
 
-    background:#e64a19;
+    background:#6a1b9a;
 
 }
-
 
 
 footer{
 
     text-align:center;
-
     padding:15px;
-
     color:#777;
 
 }
-
 
 </style>
 
@@ -221,7 +159,7 @@ footer{
 <div class="header">
 
 <h1>
-🙂 DETEKSI WAJAH MENGGUNAKAN MEDIAPIPE
+😀 FACE MESH MENGGUNAKAN MEDIAPIPE
 </h1>
 
 <div class="live">
@@ -232,21 +170,16 @@ footer{
 
 
 
-<div class="camera-box">
-
+<div class="camera-area">
 
 <video id="video"
 autoplay
 playsinline>
 </video>
 
-
-<canvas id="canvas">
-</canvas>
-
+<canvas id="canvas"></canvas>
 
 </div>
-
 
 
 <button onclick="aktifkanKamera()">
@@ -258,34 +191,32 @@ playsinline>
 <div class="info">
 
 <h2>
-Face Detection dengan MediaPipe
+Deteksi Wajah dengan MediaPipe Face Mesh
 </h2>
 
 
 <p>
-Aplikasi ini menggunakan teknologi Computer Vision dari MediaPipe
-untuk mendeteksi wajah secara langsung melalui kamera PC. Sistem
-akan membaca gambar dari webcam secara real-time kemudian memberikan
-kotak penanda pada wajah yang berhasil terdeteksi.
+Aplikasi ini menggunakan teknologi Face Mesh dari MediaPipe
+untuk mendeteksi struktur wajah secara real-time melalui kamera PC.
+Sistem mampu membaca hingga 468 titik koordinat wajah yang
+menggambarkan bentuk mata, hidung, bibir, rahang, dan kontur wajah.
 </p>
 
 
 <p>
-Deteksi wajah ini merupakan contoh penerapan kecerdasan buatan
-dalam bidang pengolahan citra digital, keamanan, pembelajaran
-teknologi, dan pengembangan aplikasi interaktif berbasis kamera.
-Seluruh proses dilakukan langsung di browser tanpa perlu instalasi
-aplikasi tambahan.
+Teknologi Face Mesh banyak digunakan dalam pengembangan aplikasi
+Augmented Reality (AR), filter wajah digital, analisis ekspresi,
+serta berbagai aplikasi Computer Vision modern. Seluruh proses
+dilakukan langsung pada perangkat pengguna melalui browser.
 </p>
 
 
 </div>
 
 
-
 <footer>
 
-MediaPipe Face Detection • Webcam Computer Vision
+MediaPipe Face Mesh • Real-time Facial Landmark Detection
 
 </footer>
 
@@ -310,7 +241,7 @@ canvas.getContext("2d");
 
 
 
-let cameraStream;
+let camera;
 
 
 
@@ -320,7 +251,7 @@ async function aktifkanKamera(){
 try{
 
 
-cameraStream =
+const stream =
 await navigator.mediaDevices.getUserMedia({
 
 video:{
@@ -333,11 +264,10 @@ audio:false
 });
 
 
-video.srcObject =
-cameraStream;
+video.srcObject=stream;
 
 
-mulaiDeteksi();
+mulaiFaceMesh();
 
 
 }
@@ -345,7 +275,7 @@ mulaiDeteksi();
 catch(error){
 
 alert(
-"Kamera tidak dapat diakses. Pastikan izin kamera diberikan."
+"Kamera tidak dapat digunakan. Silakan izinkan akses kamera."
 );
 
 }
@@ -356,13 +286,13 @@ alert(
 
 
 
-const faceDetection =
-new FaceDetection({
+const faceMesh =
+new FaceMesh({
 
 locateFile:(file)=>{
 
-return 
-"https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/"+file;
+return
+"https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/"+file;
 
 }
 
@@ -370,18 +300,22 @@ return
 
 
 
-faceDetection.setOptions({
+faceMesh.setOptions({
 
-model:"short",
+maxNumFaces:1,
 
-minDetectionConfidence:0.6
+refineLandmarks:true,
+
+minDetectionConfidence:0.5,
+
+minTrackingConfidence:0.5
 
 });
 
 
 
 
-faceDetection.onResults((results)=>{
+faceMesh.onResults((results)=>{
 
 
 canvas.width =
@@ -402,48 +336,44 @@ canvas.height
 
 
 
-if(results.detections){
+if(results.multiFaceLandmarks){
 
 
-results.detections.forEach((detection)=>{
+for(const landmarks of results.multiFaceLandmarks){
 
 
-const box =
-detection.boundingBox;
+drawConnectors(
 
+ctx,
 
+landmarks,
 
-ctx.strokeStyle="#00ff00";
+FACEMESH_TESSELATION,
 
-ctx.lineWidth=4;
-
-
-ctx.strokeRect(
-
-(box.xCenter -
-box.width/2)
-*
-canvas.width,
-
-
-(box.yCenter -
-box.height/2)
-*
-canvas.height,
-
-
-box.width *
-canvas.width,
-
-
-box.height *
-canvas.height
+{
+color:"#00ff88",
+lineWidth:1
+}
 
 );
 
 
 
-});
+drawLandmarks(
+
+ctx,
+
+landmarks,
+
+{
+color:"#ff0000",
+radius:1
+}
+
+);
+
+
+}
 
 
 }
@@ -455,17 +385,17 @@ canvas.height
 
 
 
-async function deteksi(){
+async function prosesFaceMesh(){
 
 
-await faceDetection.send({
+await faceMesh.send({
 
 image:video
 
 });
 
 
-requestAnimationFrame(deteksi);
+requestAnimationFrame(prosesFaceMesh);
 
 
 }
@@ -473,12 +403,13 @@ requestAnimationFrame(deteksi);
 
 
 
-function mulaiDeteksi(){
+
+function mulaiFaceMesh(){
 
 
 video.onloadeddata=()=>{
 
-deteksi();
+prosesFaceMesh();
 
 };
 
