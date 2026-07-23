@@ -4,355 +4,394 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Face Mesh MediaPipe Kamera PC</title>
-
-<!-- MediaPipe Library -->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+<title>Perkenalan Bung Dede</title>
 
 <style>
 
-body{
+*{
     margin:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#ffe6f0,#fff3cd,#d9f7ff);
+    padding:0;
+    box-sizing:border-box;
 }
+
+body{
+
+    font-family:"Segoe UI", Arial, sans-serif;
+
+    min-height:100vh;
+
+    background:
+
+    radial-gradient(circle at 10% 20%, #ffd6e8 0 80px, transparent 81px),
+    radial-gradient(circle at 90% 15%, #ffe9a9 0 70px, transparent 71px),
+    radial-gradient(circle at 20% 80%, #c8f7dc 0 90px, transparent 91px),
+    radial-gradient(circle at 85% 85%, #d8d7ff 0 80px, transparent 81px),
+
+    linear-gradient(
+        135deg,
+        #fff0f5,
+        #fff9e6,
+        #e8fff8
+    );
+
+    color:#5b3a29;
+
+}
+
+
+body::before{
+
+content:"🌸 🌷 🌼 🌺 🌸 🌷 🌼 🌺 🌸 🌷";
+
+position:fixed;
+
+top:10px;
+
+width:100%;
+
+text-align:center;
+
+font-size:35px;
+
+opacity:.55;
+
+}
+
+
+body::after{
+
+content:"🌺 🌼 🌷 🌸 🌺 🌼 🌷 🌸 🌺";
+
+position:fixed;
+
+bottom:10px;
+
+width:100%;
+
+text-align:center;
+
+font-size:35px;
+
+opacity:.55;
+
+}
+
+
 
 .container{
-    width:95%;
-    max-width:1000px;
-    margin:30px auto;
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+width:90%;
+
+max-width:1000px;
+
+margin:70px auto;
+
+background:rgba(255,255,255,.88);
+
+border-radius:30px;
+
+padding:40px;
+
+box-shadow:
+
+0 20px 40px rgba(0,0,0,.18);
+
+backdrop-filter:blur(8px);
+
 }
 
-.header{
-    background:linear-gradient(90deg,#6a1b9a,#ec407a);
-    color:white;
-    text-align:center;
-    padding:25px;
+
+
+h1{
+
+text-align:center;
+
+font-size:45px;
+
+color:#c2185b;
+
+margin-bottom:10px;
+
 }
 
-.header h1{
-    margin:0;
+
+.subtitle{
+
+text-align:center;
+
+font-size:20px;
+
+color:#8d6e63;
+
+margin-bottom:30px;
+
 }
 
-.badge{
-    display:inline-block;
-    margin-top:15px;
-    background:red;
-    padding:8px 20px;
-    border-radius:30px;
-    font-weight:bold;
+
+
+.profile{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:40px;
+
+flex-wrap:wrap;
+
 }
 
-.camera{
-    position:relative;
-    background:#000;
-}
 
-video{
-    width:100%;
-    display:block;
-}
-
-canvas{
-    position:absolute;
-    top:0;
-    left:0;
-}
 
 .info{
-    padding:25px;
-    background:#fff8fb;
+
+flex:1;
+
+min-width:300px;
+
 }
 
-.info h2{
-    color:#ad1457;
+
+
+.card{
+
+background:#fff5f8;
+
+padding:25px;
+
+border-radius:20px;
+
+border-left:8px solid #ec407a;
+
+font-size:19px;
+
 }
 
-.info p{
-    font-size:17px;
-    line-height:1.8;
+
+
+.illustration{
+
+flex:1;
+
+text-align:center;
+
 }
 
-button{
-    display:block;
-    margin:20px auto;
-    padding:12px 25px;
-    border:none;
-    border-radius:10px;
-    background:#8e24aa;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
+
+
+svg{
+
+width:330px;
+
 }
 
-button:hover{
-    background:#6a1b9a;
+
+
+.paragraph{
+
+margin-top:35px;
+
+font-size:18px;
+
+line-height:1.9;
+
+text-align:justify;
+
 }
+
+
 
 footer{
-    text-align:center;
-    padding:15px;
-    color:#777;
+
+text-align:center;
+
+margin-top:30px;
+
+color:#8d6e63;
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="container">
 
-<div class="header">
 
-<h1>
-😀 FACE MESH DETECTION MEDIAPIPE
-</h1>
+<h1>🌸 Perkenalan Diri 🌸</h1>
 
-<div class="badge">
-🔴 LIVE WEBCAM
-</div>
-
+<div class="subtitle">
+Sebuah kisah sederhana tentang Bung Dede dan cita rasa favoritnya
 </div>
 
 
-<div class="camera">
 
-<video id="video" autoplay playsinline></video>
+<div class="profile">
 
-<canvas id="canvas"></canvas>
+
+<div class="illustration">
+
+<!-- Ilustrasi mangkuk bubur -->
+
+<svg viewBox="0 0 400 350">
+
+
+<!-- bunga dekorasi -->
+
+<circle cx="60" cy="60" r="20" fill="#ff80ab"/>
+<circle cx="40" cy="40" r="20" fill="#f8bbd0"/>
+<circle cx="80" cy="40" r="20" fill="#f8bbd0"/>
+<circle cx="60" cy="20" r="20" fill="#f8bbd0"/>
+
+
+<circle cx="330" cy="60" r="20" fill="#ffd54f"/>
+<circle cx="310" cy="40" r="20" fill="#ffcc80"/>
+<circle cx="350" cy="40" r="20" fill="#ffcc80"/>
+
+
+
+<!-- mangkuk -->
+
+<ellipse cx="200" cy="250" rx="130" ry="35"
+fill="#d7ccc8"/>
+
+
+<path d="
+M80 170
+Q200 120 320 170
+L290 260
+Q200 310 110 260
+Z"
+fill="#fff"
+stroke="#8d6e63"
+stroke-width="5"/>
+
+
+
+<!-- isi bubur -->
+
+<ellipse cx="200" cy="170" rx="110" ry="35"
+fill="#f5e6d3"/>
+
+
+
+<!-- kacang merah -->
+
+<circle cx="140" cy="165" r="12" fill="#8e244d"/>
+<circle cx="180" cy="155" r="12" fill="#8e244d"/>
+<circle cx="230" cy="165" r="12" fill="#8e244d"/>
+<circle cx="270" cy="155" r="12" fill="#8e244d"/>
+
+
+<!-- ketan hitam -->
+
+<circle cx="160" cy="185" r="10" fill="#302030"/>
+<circle cx="210" cy="180" r="10" fill="#302030"/>
+<circle cx="250" cy="190" r="10" fill="#302030"/>
+
+
+<!-- santan -->
+
+<path d="
+M120 145
+Q200 120 280 145"
+stroke="#ffffff"
+stroke-width="10"
+fill="none"
+stroke-linecap="round"/>
+
+
+<text x="120" y="340"
+font-size="20"
+fill="#6d4c41">
+
+Bubur Kacang Merah 🥣
+
+</text>
+
+
+</svg>
+
 
 </div>
 
-
-<button onclick="startCamera()">
-🎥 Aktifkan Kamera
-</button>
 
 
 <div class="info">
 
-<h2>
-Deteksi Wajah Menggunakan MediaPipe Face Mesh
-</h2>
+<div class="card">
 
 <p>
-Aplikasi ini menggunakan teknologi MediaPipe Face Mesh untuk
-mendeteksi bentuk wajah secara real-time melalui kamera PC.
-Sistem membaca koordinat wajah dan menampilkan jaringan titik
-landmark yang menggambarkan struktur mata, hidung, bibir, dan
-kontur wajah.
+<strong>👤 Nama:</strong><br>
+Bung Dede
 </p>
 
+<br>
+
 <p>
-Face Mesh merupakan teknologi Computer Vision yang banyak digunakan
-untuk aplikasi augmented reality, filter wajah, analisis gerakan
-wajah, serta berbagai aplikasi kecerdasan buatan berbasis kamera.
-Seluruh proses berjalan langsung pada browser pengguna.
+<strong>🍲 Makanan Kesukaan:</strong><br>
+Bubur Kacang Merah campur Ketan Hitam + Santan
 </p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="paragraph">
+
+
+<p>
+Halo, perkenalkan nama saya <strong>Bung Dede</strong>. Saya adalah pribadi yang
+senang menikmati perjalanan hidup dengan rasa syukur, semangat belajar,
+dan menghargai setiap pengalaman yang datang. Bagi saya, kehidupan adalah
+sebuah perjalanan indah yang dipenuhi kesempatan untuk mengenal banyak hal
+baru, berbagi kebaikan, serta menciptakan kenangan berharga bersama orang-orang
+di sekitar.
+</p>
+
+
+<p>
+Salah satu hal sederhana yang selalu memberikan kebahagiaan bagi saya adalah
+menikmati makanan kesukaan, yaitu <strong>Bubur Kacang Merah campur Ketan Hitam
+dengan Santan</strong>. Perpaduan kacang merah yang lembut, ketan hitam yang
+memiliki tekstur khas, serta santan yang gurih menciptakan harmoni rasa yang
+istimewa. Setiap sendoknya menghadirkan kehangatan, kelembutan, dan kenangan
+yang membuat hidangan tradisional ini terasa begitu istimewa.
+</p>
+
+
+<p>
+Melalui perkenalan sederhana ini, saya berharap dapat berbagi sedikit cerita
+tentang diri saya. Saya percaya bahwa keindahan hidup tidak hanya ditemukan
+dalam hal-hal besar, tetapi juga dalam kesederhanaan yang mampu menghadirkan
+kebahagiaan. Seperti semangkuk Bubur Kacang Merah campur Ketan Hitam dengan
+Santan, hidup akan terasa lebih bermakna ketika dinikmati dengan penuh rasa
+syukur, ketulusan, dan hati yang bahagia.
+</p>
+
 
 </div>
 
 
 <footer>
-MediaPipe Face Mesh • Real Time Facial Landmark Detection
+
+🌸 Selamat datang di halaman perkenalan Bung Dede 🌸
+
 </footer>
 
 
 </div>
-
-
-
-<script>
-
-
-const video =
-document.getElementById("video");
-
-const canvas =
-document.getElementById("canvas");
-
-const ctx =
-canvas.getContext("2d");
-
-
-
-async function startCamera(){
-
-try{
-
-const stream =
-await navigator.mediaDevices.getUserMedia({
-
-video:{
-width:1280,
-height:720
-},
-
-audio:false
-
-});
-
-
-video.srcObject=stream;
-
-
-startFaceMesh();
-
-
-}
-
-catch(error){
-
-alert(
-"Kamera gagal diakses. Pastikan izin kamera diberikan."
-);
-
-}
-
-}
-
-
-
-
-
-const faceMesh =
-new FaceMesh({
-
-locateFile:(file)=>{
-
-return 
-"https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/"+file;
-
-}
-
-});
-
-
-
-faceMesh.setOptions({
-
-maxNumFaces:1,
-
-refineLandmarks:true,
-
-minDetectionConfidence:0.5,
-
-minTrackingConfidence:0.5
-
-});
-
-
-
-
-
-faceMesh.onResults(results=>{
-
-
-canvas.width =
-video.videoWidth;
-
-canvas.height =
-video.videoHeight;
-
-
-
-ctx.clearRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
-
-
-
-if(results.multiFaceLandmarks){
-
-
-for(const faceLandmarks of results.multiFaceLandmarks){
-
-
-drawConnectors(
-
-ctx,
-
-faceLandmarks,
-
-FACEMESH_TESSELATION,
-
-{
-color:"#00ff88",
-lineWidth:1
-}
-
-);
-
-
-
-drawLandmarks(
-
-ctx,
-
-faceLandmarks,
-
-{
-color:"#ff1744",
-radius:1
-}
-
-);
-
-
-}
-
-}
-
-
-});
-
-
-
-
-
-async function detectFace(){
-
-
-await faceMesh.send({
-
-image:video
-
-});
-
-
-requestAnimationFrame(detectFace);
-
-}
-
-
-
-
-
-function startFaceMesh(){
-
-
-video.onloadeddata=()=>{
-
-detectFace();
-
-};
-
-
-}
-
-
-
-</script>
 
 
 </body>
