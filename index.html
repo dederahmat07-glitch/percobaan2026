@@ -1,286 +1,40 @@
-<!DOCTYPE html>
+html='''<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diogenes dari Sinope - Filsuf Sinisme</title>
-
+<title>Perkenalan Filsuf Diogenes</title>
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-
-font-family:Georgia,serif;
-background:linear-gradient(135deg,
-#fff4ef,
-#ffe9dc,
-#fff7ef,
-#ffe4d0);
-
-color:#4d2b22;
-line-height:1.9;
-padding:40px;
-
-}
-
-/* Bingkai motif Nias sederhana */
-
-.frame{
-
-max-width:1100px;
-margin:auto;
-background:#fffdfb;
-
-border:18px solid #d3542a;
-
-border-image: repeating-linear-gradient(
-45deg,
-#d3542a 0px,
-#d3542a 12px,
-#ffccbc 12px,
-#ffccbc 24px,
-#f39c12 24px,
-#f39c12 36px,
-#ffd7c2 36px,
-#ffd7c2 48px
-) 30;
-
-border-radius:18px;
-
-box-shadow:0 20px 40px rgba(0,0,0,.15);
-
-padding:45px;
-
-}
-
-/* Ornamen */
-
-.ornamen{
-
-text-align:center;
-font-size:28px;
-letter-spacing:8px;
-color:#d3542a;
-margin-bottom:25px;
-
-}
-
-h1{
-
-text-align:center;
-font-size:42px;
-color:#c0392b;
-margin-bottom:10px;
-
-}
-
-h2{
-
-text-align:center;
-font-weight:normal;
-color:#b85b39;
-margin-bottom:35px;
-
-}
-
-.hero{
-
-display:flex;
-gap:40px;
-align-items:center;
-flex-wrap:wrap;
-justify-content:center;
-
-}
-
-svg{
-
-width:320px;
-height:auto;
-
-}
-
-.card{
-
-flex:1;
-min-width:300px;
-
-}
-
-.info{
-
-background:#fff2eb;
-padding:20px;
-border-left:8px solid #d3542a;
-border-radius:12px;
-font-size:18px;
-
-}
-
-p{
-
-margin-top:22px;
-font-size:19px;
-text-align:justify;
-
-}
-
-footer{
-
-margin-top:35px;
-text-align:center;
-font-size:15px;
-color:#7d4f3a;
-
-}
-
+body{font-family:Georgia,serif;background:linear-gradient(135deg,#fde2e4,#e2f0cb,#cddafd);margin:0;padding:30px;color:#333;}
+.frame{max-width:1000px;margin:auto;background:#fffaf5;border:18px solid #e85d04;border-radius:24px;padding:30px;position:relative;box-shadow:0 8px 25px rgba(0,0,0,.15)}
+.frame:before,.frame:after{content:"✦ ◆ ✦ ◆ ✦";position:absolute;color:#d9480f;font-size:28px;letter-spacing:8px}
+.frame:before{top:8px;left:20px}.frame:after{bottom:8px;right:20px}
+h1{text-align:center;color:#c2410c}
+.illustration{text-align:center;margin:20px 0}
+p{font-size:1.1rem;line-height:1.8;text-align:justify}
+.small{font-size:.9rem;text-align:center;color:#777}
 </style>
-
 </head>
-
 <body>
-
 <div class="frame">
-
-<div class="ornamen">
-◆ ◈ ◆ ◈ ◆ ◈ ◆ ◈ ◆
-</div>
-
-<h1>Diogenes dari Sinope</h1>
-
-<h2>Tokoh Utama Filsafat Sinisme (Cynicism)</h2>
-
-<div class="hero">
-
-<!-- Ilustrasi SVG -->
-
-<svg viewBox="0 0 300 360">
-
-<!-- Matahari -->
-<circle cx="250" cy="55" r="35" fill="#FFD54F"/>
-
-<!-- Tempayan -->
-<ellipse cx="150" cy="270" rx="90" ry="25" fill="#C97A45"/>
-<path d="
-M70 160
-Q150 120 230 160
-L215 280
-Q150 320 85 280
-Z"
-fill="#D88B52"
-stroke="#8B4513"
-stroke-width="4"/>
-
-<!-- Kepala -->
-<circle cx="150" cy="120" r="28"
-fill="#F5D0A9"/>
-
-<!-- Rambut -->
-<path d="
-M125 110
-Q150 70 175 110
-"
-stroke="#6D4C41"
-stroke-width="8"
-fill="none"/>
-
-<!-- Janggut -->
-<path d="
-M132 135
-Q150 165 168 135"
-fill="#6D4C41"/>
-
-<!-- Tubuh -->
-<rect x="130"
-y="148"
-width="40"
-height="75"
-rx="8"
-fill="#E67E22"/>
-
-<!-- Lengan -->
-<line x1="130"
-y1="170"
-x2="105"
-y2="200"
-stroke="#F5D0A9"
-stroke-width="8"/>
-
-<!-- Lentera -->
-<rect x="90"
-y="200"
-width="18"
-height="28"
-fill="#FFD54F"
-stroke="#8B4513"
-stroke-width="2"/>
-
-<line x1="99"
-y1="185"
-x2="99"
-y2="200"
-stroke="#8B4513"
-stroke-width="3"/>
-
-<!-- Tongkat -->
-<line x1="190"
-y1="150"
-x2="210"
-y2="255"
-stroke="#6D4C41"
-stroke-width="5"/>
-
+<h1>Diogenes dan Inti Pemikirannya</h1>
+<div class="illustration">
+<svg width="420" height="220" viewBox="0 0 420 220">
+<rect width="420" height="220" fill="#ffe8cc" rx="20"/>
+<circle cx="210" cy="75" r="35" fill="#ffd8a8"/>
+<rect x="180" y="110" width="60" height="70" fill="#e67700"/>
+<line x1="210" y1="105" x2="210" y2="180" stroke="#8d5524" stroke-width="6"/>
+<line x1="210" y1="135" x2="175" y2="155" stroke="#8d5524" stroke-width="6"/>
+<line x1="210" y1="135" x2="245" y2="155" stroke="#8d5524" stroke-width="6"/>
+<text x="210" y="205" text-anchor="middle" font-size="18" fill="#c2410c">Ilustrasi Diogenes bergaya sederhana</text>
 </svg>
-
-<div class="card">
-
-<div class="info">
-
-<strong>Nama :</strong> Diogenes dari Sinope<br><br>
-
-<strong>Lahir :</strong> sekitar 412 atau 404 SM<br><br>
-
-<strong>Aliran :</strong> Sinisme (Cynicism)<br><br>
-
-<strong>Gagasan Inti :</strong>
-Hidup sederhana, bebas dari keserakahan, dan selaras dengan kebajikan.
-
 </div>
-
+<p>Diogenes dari Sinope merupakan salah satu filsuf Yunani kuno yang paling terkenal karena gaya hidupnya yang radikal, sederhana, dan penuh kritik terhadap kemapanan sosial. Ia hidup pada abad ke-4 SM dan menjadi tokoh utama aliran Sinisme (Cynicism). Diogenes menolak kemewahan, kekayaan, dan kehormatan yang menurutnya sering membuat manusia kehilangan kebebasan sejati. Melalui tindakan-tindakannya yang provokatif, ia berusaha menunjukkan bahwa kebahagiaan tidak bergantung pada harta ataupun status, melainkan pada kemampuan manusia untuk hidup sesuai dengan kodrat dan akal sehatnya.</p>
+<p>Inti pemikiran Diogenes adalah autarkeia atau kemandirian diri. Menurutnya, manusia harus berupaya mengurangi ketergantungan terhadap kebutuhan yang tidak penting agar dapat hidup bebas. Ia percaya bahwa banyak penderitaan muncul karena manusia terlalu mengejar pengakuan sosial, kekuasaan, dan kenikmatan materi. Dengan menyederhanakan kebutuhan hidup, seseorang dapat memperoleh kebebasan batin, keteguhan moral, dan kemampuan untuk berpikir jernih tanpa tekanan dari ambisi maupun norma-norma yang dibuat masyarakat.</p>
+<p>Warisan terbesar Diogenes terletak pada keberaniannya mempertanyakan nilai-nilai yang diterima begitu saja oleh masyarakat. Ia mengajarkan bahwa kebajikan lebih berharga daripada kekayaan, bahwa kejujuran harus diutamakan dibanding pencitraan, dan bahwa kehidupan yang otentik lebih penting daripada penampilan lahiriah. Meski cara penyampaiannya sering dianggap ekstrem, gagasannya terus menginspirasi pemikiran tentang kebebasan pribadi, kesederhanaan hidup, dan keberanian untuk hidup selaras dengan keyakinan yang benar.</p>
+<div class="small">Bingkai menggunakan nuansa merah-oranye terinspirasi ornamen Nias dengan palet pastel.</div>
 </div>
-
-</div>
-
-<p>
-
-<strong>Diogenes dari Sinope</strong> merupakan salah satu filsuf Yunani Kuno yang paling terkenal karena kehidupannya yang sederhana sekaligus provokatif. Ia adalah tokoh utama dalam aliran <em>Sinisme (Cynicism)</em>, sebuah pandangan filsafat yang menempatkan kebajikan sebagai satu-satunya sumber kebahagiaan sejati. Menurut Diogenes, manusia terlalu mudah diperbudak oleh kekayaan, kedudukan, kemewahan, dan pujian sosial. Oleh karena itu, ia memilih menjalani hidup yang sangat sederhana, bahkan dikisahkan tinggal di dalam sebuah tempayan besar. Kehidupan asketis tersebut bukan sekadar bentuk kemiskinan, melainkan kritik terhadap masyarakat yang menurutnya terlalu mengejar hal-hal yang bersifat lahiriah dan melupakan kualitas moral.
-
-</p>
-
-<p>
-
-Pemikiran Diogenes berpusat pada gagasan bahwa manusia akan mencapai kebebasan apabila mampu melepaskan diri dari keinginan-keinginan yang tidak perlu. Baginya, semakin sedikit kebutuhan seseorang, semakin besar pula kemerdekaan yang dimilikinya. Ia mengajarkan keberanian untuk berkata jujur tanpa takut terhadap kekuasaan maupun norma sosial yang dianggap tidak rasional. Salah satu kisah paling terkenal adalah ketika ia berjalan pada siang hari sambil membawa lentera dan berkata bahwa ia sedang mencari "manusia yang benar-benar jujur". Kisah ini melambangkan kritiknya terhadap kemunafikan dan kepura-puraan dalam kehidupan masyarakat. Bahkan ketika bertemu Alexander Agung, Diogenes hanya meminta agar sang raja tidak menghalangi sinar matahari yang menyinarinya, sebuah simbol bahwa kekuasaan duniawi tidak lebih berharga daripada kebebasan batin.
-
-</p>
-
-<p>
-
-Inti terdalam filsafat Diogenes adalah bahwa kebahagiaan tidak berasal dari kepemilikan, melainkan dari kebajikan, kesederhanaan, dan kemandirian. Ia mengajak manusia untuk hidup sesuai dengan alam, mengurangi ketergantungan terhadap benda-benda material, serta berani mempertanyakan kebiasaan sosial yang tidak membawa kebaikan. Walaupun cara hidupnya sering dianggap ekstrem, pemikirannya tetap relevan hingga saat ini, terutama di tengah budaya konsumtif dan persaingan yang mendorong manusia mengejar status tanpa batas. Diogenes mengingatkan bahwa kekayaan terbesar bukanlah banyaknya harta, melainkan kemampuan untuk merasa cukup, hidup dengan integritas, serta menjaga kebebasan hati dan pikiran dari belenggu keinginan yang berlebihan.
-
-</p>
-
-<footer>
-
-❖ Halaman Edukasi Filsafat • Tema Pastel Merah-Oranye dengan Bingkai Terinspirasi Ornamen Nias ❖
-
-</footer>
-
-</div>
-
 </body>
-</html>
+</html>'''
+open('/mnt/data/Perkenalan_Diogenes_Nias.html','w',encoding='utf-8').write(html)
+print('/mnt/data/Perkenalan_Diogenes_Nias.html')
