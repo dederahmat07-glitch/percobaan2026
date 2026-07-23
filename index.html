@@ -6,7 +6,6 @@
 <title>LIVE KEINDAHAN KOTA BANDUNG DARI JENDELA KELAS</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -14,190 +13,101 @@
 }
 
 body{
-    background:linear-gradient(135deg,#ffe0d6,#fff5ec,#ffe8df);
     font-family:Arial,Helvetica,sans-serif;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-}
-
-.container{
-
-width:95%;
-max-width:1100px;
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,.25);
-
+    background:linear-gradient(135deg,#FFE7DD,#FFF6F1,#FFF2EB);
 }
 
 header{
-
-background:linear-gradient(90deg,#ff5722,#ff9800);
-
-color:white;
-
-padding:20px;
-
-text-align:center;
-
+    background:#F4511E;
+    color:white;
+    text-align:center;
+    padding:20px;
 }
 
 header h1{
-
-font-size:32px;
-
+    font-size:34px;
 }
 
 .live{
-
-display:inline-block;
-
-margin-top:10px;
-
-background:red;
-
-padding:8px 18px;
-
-border-radius:50px;
-
-font-weight:bold;
-
-animation:blink .9s infinite;
-
+    display:inline-block;
+    margin-top:10px;
+    background:red;
+    color:white;
+    padding:8px 16px;
+    border-radius:30px;
+    font-weight:bold;
+    animation:blink 1s infinite;
 }
 
 @keyframes blink{
-
-50%{
-
-opacity:.4;
-
+50%{opacity:.4;}
 }
 
+.container{
+    width:95%;
+    max-width:1200px;
+    margin:30px auto;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
-.video-box{
-
-background:black;
-
-position:relative;
-
+.viewer{
+    position:relative;
+    width:100%;
+    height:700px;
+    background:black;
 }
 
-video{
-
-width:100%;
-
-display:block;
-
-}
-
-.status{
-
-position:absolute;
-
-top:15px;
-
-left:15px;
-
-background:rgba(255,0,0,.85);
-
-color:white;
-
-padding:8px 14px;
-
-border-radius:20px;
-
-font-weight:bold;
-
+.viewer iframe{
+    width:100%;
+    height:100%;
+    border:none;
 }
 
 .caption{
-
-padding:25px;
-
-background:#fffaf7;
-
+    padding:25px;
+    background:#FFF7F2;
 }
 
 .caption h2{
-
-color:#e65100;
-
-margin-bottom:15px;
-
+    color:#E64A19;
+    margin-bottom:10px;
 }
 
 .caption p{
-
-font-size:18px;
-
-line-height:1.8;
-
+    line-height:1.8;
+    color:#555;
 }
 
 footer{
-
-text-align:center;
-
-padding:15px;
-
-color:#666;
-
-background:#fafafa;
-
+    padding:15px;
+    text-align:center;
+    color:#777;
 }
-
-button{
-
-padding:12px 22px;
-
-margin-top:15px;
-
-background:#ff5722;
-
-color:white;
-
-border:none;
-
-border-radius:8px;
-
-cursor:pointer;
-
-font-size:16px;
-
-}
-
-button:hover{
-
-background:#e64a19;
-
-}
-
 </style>
 
 </head>
 
 <body>
 
-<div class="container">
-
 <header>
 
-<h1>LIVE KEINDAHAN KOTA BANDUNG DARI JENDELA KELAS</h1>
+<h1>📡 LIVE KEINDAHAN KOTA BANDUNG DARI JENDELA KELAS</h1>
 
 <div class="live">🔴 LIVE</div>
 
 </header>
 
-<div class="video-box">
+<div class="container">
 
-<div class="status">KAMERA AKTIF</div>
+<div class="viewer">
 
-<video id="kamera" autoplay playsinline muted></video>
+<iframe
+src="http://10.101.209.94/"
+allowfullscreen>
+</iframe>
 
 </div>
 
@@ -206,58 +116,21 @@ background:#e64a19;
 <h2>LIVE KEINDAHAN KOTA BANDUNG DARI JENDELA KELAS</h2>
 
 <p>
-
-Siaran langsung ini menggunakan kamera yang terhubung pada komputer.
-Apabila kamera diarahkan ke jendela kelas, maka pemandangan Kota Bandung
-akan tampil secara real-time pada halaman ini. Pastikan browser telah
-diberi izin untuk mengakses kamera.
-
+Halaman ini menampilkan tayangan langsung dari kamera pada alamat
+<strong>http://10.101.209.94/</strong>.
+Jika server kamera mengizinkan penayangan melalui iframe, video akan muncul
+di atas. Apabila tidak muncul, kemungkinan server menerapkan kebijakan
+keamanan seperti <code>X-Frame-Options</code> atau <code>Content-Security-Policy</code>
+yang mencegah situs lain menyematkan tampilannya.
 </p>
-
-<button onclick="aktifkanKamera()">
-🎥 Aktifkan Kamera
-</button>
 
 </div>
 
 <footer>
-
-Live Camera Preview • HTML5 getUserMedia()
-
+Live Camera Viewer
 </footer>
 
 </div>
-
-<script>
-
-async function aktifkanKamera(){
-
-try{
-
-const stream = await navigator.mediaDevices.getUserMedia({
-
-video:{
-width:{ideal:1920},
-height:{ideal:1080}
-},
-
-audio:false
-
-});
-
-document.getElementById("kamera").srcObject = stream;
-
-}catch(err){
-
-alert("Kamera tidak dapat diakses.\n\nPastikan browser telah diberi izin menggunakan kamera.");
-
-}
-
-}
-
-window.onload=aktifkanKamera;
-
-</script>
 
 </body>
 </html>
