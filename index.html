@@ -1,111 +1,227 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perkenalan - Bung Dede</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perkenalan Bung Dede</title>
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #6dd5ed, #2193b0);
-            color: #333;
-            line-height: 1.8;
-            padding: 40px;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .container {
-            max-width: 850px;
-            margin: auto;
-            background: #fff;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
+body{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color:#444;
+    line-height:1.9;
+    overflow-x:hidden;
 
-        h1 {
-            text-align: center;
-            color: #0d47a1;
-            margin-bottom: 20px;
-        }
+    /* Latar pastel */
+    background:
+    radial-gradient(circle at 10% 20%, #ffd6e7 0 60px, transparent 61px),
+    radial-gradient(circle at 90% 15%, #fff3b0 0 70px, transparent 71px),
+    radial-gradient(circle at 20% 80%, #d7f9f1 0 65px, transparent 66px),
+    radial-gradient(circle at 80% 85%, #d9d7ff 0 70px, transparent 71px),
+    linear-gradient(135deg,#ffeef5,#f7f4ff,#eefcf8,#fff9ec);
+}
 
-        h2 {
-            color: #1565c0;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
+/* Motif bunga */
+body::before{
+    content:"🌸 🌼 🌷 🌺 🌸 🌼 🌷 🌺 🌸 🌼 🌷 🌺";
+    position:fixed;
+    top:15px;
+    left:0;
+    width:100%;
+    text-align:center;
+    font-size:38px;
+    opacity:.55;
+}
 
-        p {
-            text-align: justify;
-            margin-bottom: 15px;
-            font-size: 17px;
-        }
+body::after{
+    content:"🌷 🌸 🌼 🌺 🌷 🌸 🌼 🌺 🌷 🌸 🌼 🌺";
+    position:fixed;
+    bottom:10px;
+    left:0;
+    width:100%;
+    text-align:center;
+    font-size:38px;
+    opacity:.55;
+}
 
-        .info {
-            background-color: #e3f2fd;
-            padding: 15px;
-            border-left: 5px solid #1976d2;
-            border-radius: 8px;
-            margin-bottom: 25px;
-        }
+.container{
+    max-width:960px;
+    margin:60px auto;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(8px);
+    border-radius:28px;
+    padding:40px;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
 
-        footer {
-            margin-top: 30px;
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-        }
-    </style>
+h1{
+    text-align:center;
+    color:#a54f8a;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#777;
+    margin-bottom:30px;
+}
+
+.profile{
+    display:flex;
+    gap:35px;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.card{
+    flex:1;
+    min-width:300px;
+}
+
+.info{
+    background:#fff8fb;
+    border-left:6px solid #ff93c2;
+    padding:18px;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+.info p{
+    font-size:18px;
+}
+
+p{
+    text-align:justify;
+    margin-bottom:18px;
+    font-size:18px;
+}
+
+svg{
+    width:300px;
+    height:auto;
+}
+
+footer{
+    text-align:center;
+    margin-top:35px;
+    color:#777;
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
-    <h1>Perkenalan Diri</h1>
 
-    <div class="info">
-        <p><strong>Nama:</strong> Bung Dede</p>
-        <p><strong>Makanan Kesukaan:</strong> Bubur Kacang Merah campur Ketan Hitam + Santan</p>
-    </div>
+<h1>🌸 Perkenalan Diri 🌸</h1>
+<p class="subtitle">
+Selamat datang di halaman perkenalan sederhana yang penuh warna pastel dan nuansa bunga.
+</p>
 
-    <h2>Tentang Saya</h2>
+<div class="profile">
 
-    <p>
-        Halo! Perkenalkan, nama saya <strong>Bung Dede</strong>. Saya adalah seseorang yang
-        senang mempelajari hal-hal baru, terutama yang dapat menambah pengetahuan dan
-        keterampilan. Saya percaya bahwa setiap pengalaman merupakan kesempatan untuk
-        berkembang menjadi pribadi yang lebih baik. Dalam kehidupan sehari-hari, saya
-        berusaha menjalani aktivitas dengan semangat, rasa ingin tahu yang tinggi, serta
-        sikap yang positif dalam menghadapi berbagai tantangan.
-    </p>
+<div>
+<!-- Ilustrasi SVG -->
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
 
-    <p>
-        Selain memiliki ketertarikan untuk terus belajar, saya juga mempunyai makanan
-        favorit yang selalu berhasil membuat suasana hati menjadi lebih baik, yaitu
-        <strong>Bubur Kacang Merah campur Ketan Hitam dengan Santan</strong>. Perpaduan
-        kacang merah yang lembut, ketan hitam yang kenyal, serta santan yang gurih
-        menciptakan cita rasa yang kaya dan seimbang. Hidangan ini terasa nikmat baik
-        saat disajikan hangat maupun dingin, sehingga menjadi salah satu makanan yang
-        selalu saya nantikan untuk dinikmati di waktu senggang.
-    </p>
+<!-- bunga -->
+<g transform="translate(30 30)">
+<circle cx="30" cy="30" r="12" fill="#ffd54f"/>
+<circle cx="30" cy="10" r="12" fill="#ff8ec7"/>
+<circle cx="50" cy="30" r="12" fill="#ff8ec7"/>
+<circle cx="30" cy="50" r="12" fill="#ff8ec7"/>
+<circle cx="10" cy="30" r="12" fill="#ff8ec7"/>
+</g>
 
-    <p>
-        Saya berharap dapat terus belajar, menjalin hubungan baik dengan banyak orang,
-        serta memberikan manfaat melalui kemampuan yang saya miliki. Bagi saya, kehidupan
-        bukan hanya tentang mencapai tujuan, tetapi juga menikmati setiap proses,
-        menghargai pengalaman, dan mensyukuri hal-hal sederhana, termasuk menikmati
-        semangkuk Bubur Kacang Merah campur Ketan Hitam dengan Santan yang menjadi
-        makanan kesukaan saya. Semoga perkenalan singkat ini dapat memberikan gambaran
-        mengenai diri saya. Terima kasih telah meluangkan waktu untuk membaca.
-    </p>
+<g transform="translate(240 25)">
+<circle cx="30" cy="30" r="12" fill="#ffd54f"/>
+<circle cx="30" cy="10" r="12" fill="#b39ddb"/>
+<circle cx="50" cy="30" r="12" fill="#b39ddb"/>
+<circle cx="30" cy="50" r="12" fill="#b39ddb"/>
+<circle cx="10" cy="30" r="12" fill="#b39ddb"/>
+</g>
 
-    <footer>
-        © 2026 - Halaman Perkenalan Bung Dede
-    </footer>
+<!-- mangkuk -->
+<ellipse cx="160" cy="215" rx="90" ry="20" fill="#d0d0d0"/>
+
+<path d="M85 145
+Q160 115 235 145
+L215 220
+Q160 250 105 220
+Z"
+fill="#ffffff"
+stroke="#999"
+stroke-width="3"/>
+
+<!-- isi -->
+<ellipse cx="160" cy="145" rx="72" ry="18" fill="#f6efe5"/>
+
+<!-- kacang merah -->
+<circle cx="125" cy="145" r="7" fill="#8b1e3f"/>
+<circle cx="150" cy="138" r="6" fill="#8b1e3f"/>
+<circle cx="175" cy="148" r="6" fill="#8b1e3f"/>
+<circle cx="190" cy="140" r="6" fill="#8b1e3f"/>
+<circle cx="145" cy="152" r="5" fill="#8b1e3f"/>
+
+<!-- ketan hitam -->
+<circle cx="115" cy="155" r="5" fill="#35203b"/>
+<circle cx="135" cy="160" r="4" fill="#35203b"/>
+<circle cx="175" cy="160" r="5" fill="#35203b"/>
+<circle cx="195" cy="154" r="4" fill="#35203b"/>
+
+<!-- santan -->
+<path d="M108 142
+Q160 132 212 143"
+stroke="white"
+stroke-width="6"
+stroke-linecap="round"/>
+
+<text x="95" y="280"
+font-size="18"
+fill="#7d5a50"
+font-weight="bold">
+🥣 Bubur Kacang Merah
+</text>
+
+</svg>
+</div>
+
+<div class="card">
+
+<div class="info">
+<p><strong>👤 Nama :</strong> Bung Dede</p>
+<p><strong>🍲 Makanan Kesukaan :</strong><br>
+Bubur Kacang Merah campur Ketan Hitam + Santan</p>
+</div>
+
+</div>
+
+</div>
+
+<p>
+Halo, perkenalkan nama saya <strong>Bung Dede</strong>. Saya adalah seseorang yang percaya bahwa setiap hari merupakan kesempatan untuk belajar, berkembang, dan menikmati hal-hal sederhana yang membuat hidup terasa lebih bermakna. Saya senang mengenal pengalaman baru, menjalin hubungan baik dengan orang lain, serta mengisi waktu dengan kegiatan yang bermanfaat. Bagi saya, semangat untuk terus bertumbuh adalah bekal penting dalam menjalani kehidupan, karena setiap langkah kecil dapat menjadi awal dari pencapaian yang lebih besar di masa depan.
+</p>
+
+<p>
+Di antara berbagai makanan yang pernah saya nikmati, <strong>Bubur Kacang Merah campur Ketan Hitam dengan Santan</strong> memiliki tempat yang sangat istimewa. Perpaduan lembutnya kacang merah, tekstur kenyal ketan hitam, dan gurihnya santan menghasilkan cita rasa yang hangat, manis, serta menenangkan. Aroma santan yang khas berpadu dengan rasa alami kacang merah menciptakan hidangan tradisional yang sederhana, namun kaya kenikmatan. Setiap suapan menghadirkan rasa nyaman dan mengingatkan bahwa kebahagiaan sering kali hadir dari hal-hal yang tidak rumit.
+</p>
+
+<p>
+Melalui halaman perkenalan ini, saya berharap siapa pun yang membacanya dapat mengenal saya sedikit lebih dekat. Saya ingin terus menjalani hidup dengan rasa syukur, semangat untuk belajar, dan keinginan untuk berbagi hal-hal positif kepada orang-orang di sekitar. Semoga perjalanan yang saya tempuh dipenuhi pengalaman berharga, persahabatan yang tulus, dan momen-momen indah, sebagaimana indahnya semangkuk Bubur Kacang Merah campur Ketan Hitam dengan Santan yang selalu menjadi makanan favorit saya.
+</p>
+
+<footer>
+🌸 Terima kasih telah berkunjung ke halaman perkenalan Bung Dede 🌸
+</footer>
+
 </div>
 
 </body>
