@@ -1,135 +1,142 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Deteksi Wajah MediaPipe</title>
+<title>
+Deteksi Wajah MediaPipe - Kamera IP
+</title>
 
+<!-- MediaPipe Face Detection -->
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/face_detection.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
-
 
 <style>
 
-body{
-
-margin:0;
-font-family:Arial,sans-serif;
-background:linear-gradient(
-135deg,
-#ffe0e0,
-#fff4e6,
-#e3f2fd
-);
-
+*{
+    box-sizing:border-box;
 }
 
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(
+        135deg,
+        #ffe0e0,
+        #fff3cd,
+        #d9f7ff
+    );
+}
 
 .container{
-
-width:95%;
-max-width:1100px;
-margin:30px auto;
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,.25);
-
+    width:95%;
+    max-width:1100px;
+    margin:30px auto;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
-
 
 .header{
 
-background:linear-gradient(
-90deg,
-#ff5722,
-#ff9800
-);
+    background:linear-gradient(
+        90deg,
+        #e65100,
+        #ff9800
+    );
 
-color:white;
-text-align:center;
-padding:25px;
+    color:white;
+    text-align:center;
+    padding:25px;
 
 }
-
 
 .header h1{
-
-margin:0;
-
+    margin:0;
+    font-size:32px;
 }
 
-
 .live{
-
-display:inline-block;
-background:red;
-padding:8px 20px;
-border-radius:20px;
-margin-top:10px;
-font-weight:bold;
-
+    display:inline-block;
+    margin-top:12px;
+    background:red;
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:bold;
 }
 
 
 .viewer{
 
-position:relative;
-background:black;
+    position:relative;
+    background:black;
+    width:100%;
+    height:600px;
 
 }
 
 
-video{
+#cameraStream{
 
-width:100%;
-display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
 
 }
 
 
-canvas{
+#canvas{
 
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-
+    position:absolute;
+    top:0;
+    left:0;
 }
 
 
 .caption{
 
-padding:25px;
-background:#fff8f0;
+    padding:25px;
+    background:#fff8f0;
 
 }
-
 
 .caption h2{
 
-color:#e65100;
+    color:#d84315;
 
 }
-
 
 .caption p{
 
-font-size:18px;
-line-height:1.7;
+    font-size:18px;
+    line-height:1.8;
+    text-align:justify;
 
 }
 
 
-.footer{
+.status{
 
-padding:15px;
-text-align:center;
-color:#777;
+    position:absolute;
+    top:15px;
+    left:15px;
+    z-index:5;
+
+    background:rgba(0,0,0,.7);
+    color:white;
+
+    padding:10px 15px;
+    border-radius:20px;
+
+}
+
+footer{
+
+    text-align:center;
+    padding:15px;
+    color:#777;
 
 }
 
@@ -160,20 +167,23 @@ color:#777;
 
 <div class="viewer">
 
+<div class="status">
+AI FACE DETECTION ACTIVE
+</div>
+
 
 <!--
-Ganti URL ini dengan URL stream kamera yang sebenarnya
-contoh:
-http://10.101.209.94/video.mjpg
+Ganti URL jika kamera memiliki alamat stream berbeda
 -->
 
-<video id="inputVideo"
-autoplay
-playsinline>
-</video>
+<img 
+id="cameraStream"
+src="http://10.101.209.94/"
+>
 
 
-<canvas id="outputCanvas"></canvas>
+
+<canvas id="canvas"></canvas>
 
 
 </div>
@@ -183,23 +193,24 @@ playsinline>
 <div class="caption">
 
 <h2>
-Deteksi Wajah Menggunakan Face Detection dari MediaPipe
+Deteksi Wajah Menggunakan Face Detection MediaPipe
 </h2>
 
-
 <p>
-Sistem ini menggunakan teknologi Computer Vision dari MediaPipe
-untuk mendeteksi wajah secara langsung melalui kamera. Setiap wajah
-yang terlihat pada kamera akan dianalisis secara real-time dan diberi
-tanda berupa kotak pendeteksi.
+Aplikasi ini menggunakan teknologi Computer Vision dari MediaPipe
+untuk melakukan pendeteksian wajah secara langsung dari kamera IP.
+Setiap wajah yang tertangkap oleh kamera akan dianalisis secara
+real-time sehingga sistem dapat mengenali posisi wajah pada area
+pantauan kamera.
 </p>
 
 
 <p>
-Aplikasi ini dapat digunakan sebagai contoh penerapan kecerdasan
-buatan sederhana pada bidang pengenalan objek manusia, keamanan,
-pembelajaran teknologi, dan pengembangan aplikasi interaktif berbasis
-kamera.
+Pemanfaatan teknologi ini merupakan contoh sederhana penerapan
+kecerdasan buatan dalam bidang keamanan, pembelajaran teknologi,
+monitoring ruangan, dan pengembangan aplikasi interaktif berbasis
+kamera. Sistem bekerja dengan mendeteksi pola wajah tanpa perlu
+melakukan penyimpanan gambar.
 </p>
 
 
@@ -207,11 +218,11 @@ kamera.
 
 
 
-<div class="footer">
+<footer>
 
-MediaPipe Face Detection • Live Camera Processing
+MediaPipe Face Detection + IP Camera Streaming
 
-</div>
+</footer>
 
 
 </div>
@@ -221,44 +232,16 @@ MediaPipe Face Detection • Live Camera Processing
 <script>
 
 
-const video =
-document.getElementById("inputVideo");
+const img =
+document.getElementById("cameraStream");
 
 
 const canvas =
-document.getElementById("outputCanvas");
+document.getElementById("canvas");
 
 
 const ctx =
 canvas.getContext("2d");
-
-
-
-// Kamera lokal sebagai contoh
-// Ganti dengan stream kamera IP jika tersedia
-
-navigator.mediaDevices.getUserMedia({
-
-video:true
-
-})
-
-.then(stream=>{
-
-video.srcObject=stream;
-
-})
-
-.catch(err=>{
-
-alert(
-"Kamera tidak dapat diakses: "
-+err
-);
-
-});
-
-
 
 
 
@@ -268,7 +251,7 @@ new FaceDetection({
 locateFile:(file)=>{
 
 return 
-`https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/${file}`;
+"https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/"+file;
 
 }
 
@@ -278,9 +261,9 @@ return
 
 faceDetection.setOptions({
 
-model:'short',
+model:"short",
 
-minDetectionConfidence:0.5
+minDetectionConfidence:0.6
 
 });
 
@@ -289,9 +272,9 @@ minDetectionConfidence:0.5
 faceDetection.onResults(results=>{
 
 
-canvas.width=video.videoWidth;
+canvas.width=img.clientWidth;
 
-canvas.height=video.videoHeight;
+canvas.height=img.clientHeight;
 
 
 ctx.clearRect(
@@ -306,29 +289,11 @@ canvas.height
 if(results.detections){
 
 
-for(const detection of results.detections){
-
-
-drawDetection(
-detection
-);
-
-
-}
-
-
-}
-
-
-});
-
-
-
-function drawDetection(detection){
+results.detections.forEach(face=>{
 
 
 const box =
-detection.boundingBox;
+face.boundingBox;
 
 
 ctx.strokeStyle="#00ff00";
@@ -338,11 +303,11 @@ ctx.lineWidth=4;
 
 ctx.strokeRect(
 
-box.xCenter*canvas.width -
-(box.width*canvas.width/2),
+(box.xCenter-box.width/2)
+*canvas.width,
 
-box.yCenter*canvas.height -
-(box.height*canvas.height/2),
+(box.yCenter-box.height/2)
+*canvas.height,
 
 box.width*canvas.width,
 
@@ -351,29 +316,33 @@ box.height*canvas.height
 );
 
 
+});
+
 }
 
-
-
-async function proses(){
-
-
-await faceDetection.send({
-
-image:video
 
 });
 
 
-requestAnimationFrame(proses);
 
+async function deteksi(){
+
+
+await faceDetection.send({
+
+image:img
+
+});
+
+
+requestAnimationFrame(deteksi);
 
 }
 
 
-video.onloadeddata=()=>{
+img.onload=()=>{
 
-proses();
+deteksi();
 
 };
 
